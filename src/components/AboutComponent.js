@@ -30,7 +30,7 @@ function PartnerList(props) {
         );
     });
 
-    if (props.isLoading) {
+    if (props.partners.isLoading) {
         return (
             <div className="container">
                 <div className="row">
@@ -39,7 +39,7 @@ function PartnerList(props) {
             </div>
         );
     }
-    if (props.errMess) {
+    if (props.partners.errMess) {
         return (
             <div className="container">
                 <div className="row">
