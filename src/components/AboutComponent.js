@@ -22,7 +22,7 @@ function RenderPartner({ partner }) {
 
 function PartnerList(props) {
     
-    const partners = props.partners.map((partner) => {
+    const partners = props.partners.partners.map((partner) => {
         return (
             <Media key={partner.id} tag="li">
             <RenderPartner partner={partner} />
