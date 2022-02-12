@@ -189,16 +189,15 @@ export const addPartners = partners => ({
 });
 
 
-export const postFeedback = (feedback) => () => {
-
+export const postFeedback = feedback => () => {
     return fetch(baseUrl + 'feedback', {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(feedback),
         headers: {
-            "Content-Type": "application/json"
-        }
+          'Content-Type': 'application/json'
+        },
     })
-        .then(response => {
+    .then(response => {
             if (response.ok) {
                 return response;
             } else {
@@ -207,12 +206,14 @@ export const postFeedback = (feedback) => () => {
                 throw error;
             }
         },
-            error => { throw error; }
-        )
+        error => { throw error; })
         .then(response => response.json())
-        .then(response => alert("Thank you for your feedback\n" + JSON.stringify(response)))
-        .catch(error => {
-            console.log('post comment', error.message);
-            alert('Your comment could not be posted\nError: ' + error.message);
+        .then(response => { 
+            console.log('Feedback: ', response); 
+            alert('Thank you for your feedback!\n' + JSON.stringify(response));
+        })
+        .catch(error => { 
+            console.log('Feedback: ', error.message);
+            alert('Your feedback could not be posted\nError: ' + error.message);
         });
 };
